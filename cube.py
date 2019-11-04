@@ -32,7 +32,7 @@ class Readcube:
         # real space lattice vector
         rvec = ns*ng.T
 
-        dat = str2array(f.readlines())
+        dat = self.str2array(f.readlines())
         f.close()
  
         # comply to the cube format
@@ -47,8 +47,9 @@ class Readcube:
         self.zdef = zdef
         self.dir = dir
 
-def str2array(str):
-    return np.fromstring(''.join(str), sep=' ')
+    @staticmethod
+    def str2array(str):
+        return np.fromstring(''.join(str), sep=' ')
 
 class Readpot:
     def __init__(self, filename):
